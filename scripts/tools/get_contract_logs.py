@@ -1,7 +1,7 @@
 from web3 import Web3
 from tqdm.auto import tqdm
 import pandas as pd
-from utils import get_cached_abi
+from .utils import get_cached_abi
 from datetime import datetime
 import sys
 import csv

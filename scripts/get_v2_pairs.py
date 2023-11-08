@@ -16,10 +16,10 @@ v3_factory_deploy_block = 12369621
 api_url = 'http://127.0.0.1:8545'
 start_block = v2_factory_deploy_block
 contract_address = uniswap_v2_factory_address
-outfile = "data/uniswap_v2_factory_events.csv"
-scanned_events = 'all'
+outfile = "../data/uniswap_v2_factory_events.csv"
+target_events = 'all'
 
 from tools.get_contract_logs import getContractEvents
 
-getContractEvents(api_url,start_block,contract_address,outfile,scanned_events)
+getContractEvents( contract_address,target_events, outfile,api_url, start_block )
 
