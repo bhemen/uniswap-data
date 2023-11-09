@@ -2,6 +2,7 @@ from web3 import Web3
 from web3.providers.rpc import HTTPProvider
 import json
 import pandas as pd
+from tqdm.auto import tqdm
 import csv
 
 #When you want to interact with a contract, you need to know its Application Binary Interface (ABI).
@@ -54,6 +55,7 @@ def getSymbolAndName( address ):
 #V1
 ###
 	
+print( f"Uniswap v1" )
 infile = "../data/uniswap_v1_factory_events.csv"
 
 df = pd.read_csv(infile)
@@ -64,7 +66,7 @@ df = df[['blockNumber','timestamp','msg.sender','exchange','token','transactionH
 
 df = df.rename(columns={'exchange': 'pool'})
 
-df[['token_symbol','token_name']] = df.token.apply(getSymbolAndName)
+df[['token_symbol','token_name']] = df.token.progress_apply(getSymbolAndName)
 
 outfile = "../data/uniswap_v1_pools.csv"
 df.to_csv( outfile, index=False, escapechar='\\' )
@@ -73,6 +75,7 @@ df.to_csv( outfile, index=False, escapechar='\\' )
 #V2
 ###
 
+print( f"Uniswap v2" )
 infile = "../data/uniswap_v2_factory_events.csv"
 
 df = pd.read_csv(infile)
@@ -92,6 +95,7 @@ df.to_csv( outfile, index=False, escapechar='\\' )
 #V3
 ###
 	
+print( f"Uniswap v3" )
 infile = "../data/uniswap_v3_factory_events.csv"
 
 df = pd.read_csv(infile)
