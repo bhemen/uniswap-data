@@ -46,12 +46,12 @@ getContractEvents( contract_address,target_events, outfile,api_url, start_block 
 #V3
 ###
 
-#print( "Getting events from the v3 factory" )
-#
-#start_block = v3_factory_deploy_block
-#contract_address = uniswap_v3_factory_address
-#outfile = "../data/uniswap_v3_factory_events.csv"
-#
-#
-#getContractEvents( contract_address,target_events, outfile,api_url, start_block )
+print( "Getting events from the v3 factory" )
+
+start_block = v3_factory_deploy_block
+contract_address = uniswap_v3_factory_address
+outfile = "../data/uniswap_v3_factory_events.csv"
+
+
+getContractEvents( contract_address,target_events, outfile,api_url, start_block )
 
