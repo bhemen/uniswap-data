@@ -1,4 +1,5 @@
 import pandas as pd
+from web3 import Web3
 
 datafiles = { v : f'../data/uniswap_{v}_pools.csv' for v in ['v1','v2','v3'] }
 
@@ -6,10 +7,23 @@ def get_pool_addresses(version='v3'):
 	df = pd.read_csv( datafiles[version] )
 	return list( df['pool'].unique() )
 
-def get_token_addresses(version='v3'):
+def get_pool_deploy_block(pool_address,version='v3'):
+	df = pd.read_csv( datafiles[version], dtype={'pool':str, 'blockNumber': int} )
+	df['pool'] = df['pool'].apply(Web3.to_checksum_address)
+
+	blockNumbers = df[df.pool == Web3.to_checksum_address(pool_address)].blockNumber
+	if len(blockNumbers) == 0:
+		print( "No records found" )
+		return 0
+	else:
+		block_number = blockNumbers[0]
+		print( f"Pool {pool_address} deployed at Block {block_number}" )
+		return block_number
+
+def get_tokens_addresses(version='v3'):
 	df = pd.read_csv( datafiles[version] )
 	if version == 'v1':
-		return list(df['token0'].unique())
+		return list(df['token'].unique())
 	else:
 		return list(set(df['token0'].unique()).union( df['token1'].unique() ))
 

@@ -41,6 +41,10 @@ def getSymbolAndName( address ):
 	except Exception as e:
 		name = ""
 
+	symbol = symbol.replace( "\r","" )
+	symbol = symbol.replace( "\n","" )
+	name = name.replace( "\r","" )
+	name = name.replace( "\n","" )
 	token_info[address] = pd.Series( [symbol,name] )
 
 	return token_info[address]
@@ -75,7 +79,7 @@ df = pd.read_csv(infile)
 df = df[df.event == 'PairCreated']
 df = df[['blockNumber','timestamp','msg.sender','pair','token0','token1','transactionHash']]
 
-df = df.rename(columns={'exchange': 'pair'})
+df = df.rename(columns={'pair': 'pool'})
 #df = df.head(100)
 
 df[['token0_symbol','token0_name']] = df.token0.apply(getSymbolAndName)
