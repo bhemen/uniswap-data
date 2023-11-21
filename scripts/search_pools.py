@@ -12,12 +12,23 @@ def get_pool_deploy_block(pool_address,version='v3'):
 	df['pool'] = df['pool'].apply(Web3.to_checksum_address)
 
 	blockNumbers = df[df.pool == Web3.to_checksum_address(pool_address)].blockNumber
-	if len(blockNumbers) == 0:
-		print( "No records found" )
+	if blockNumbers.empty:
+		print( f"No records found for pool {Web3.to_checksum_address(pool_address)} in file {datafiles[version]}" )
 		return 0
 	else:
-		block_number = blockNumbers[0]
-		print( f"Pool {pool_address} deployed at Block {block_number}" )
+		try:
+			block_number = blockNumbers.iloc[0]
+		except Exception as e:
+			print( f"Error getting block" )
+			print( e )
+			print( blockNumbers.head() )
+			block_number = 0
+
+		if block_number == 0:
+			print( "Error getting deploy block!" )
+			print( blockNumbers.head() )	
+		else:
+			print( f"Pool {Web3.to_checksum_address(pool_address)} deployed at Block {block_number}" )
 		return block_number
 
 def get_tokens_addresses(version='v3'):

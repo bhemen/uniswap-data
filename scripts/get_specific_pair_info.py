@@ -106,7 +106,8 @@ if __name__ == '__main__':
 	dai_eth = "0xa478c2975ab1ea89e8196811f51a7b7ade33eb11"
 	dai_usdt = "0xb20bd5d04be54f870d5c0d3ca85d82b34b836405"
 
-	interesting_pools = [usdc_eth,dai_usdc,wise_eth,fei_tribe,weth_usdt,fxs_frax,fnk_usdt,wbtc_weth,usdc_usdt,dai_eth,dai_usdt]
+	#interesting_pools = [usdc_eth,dai_usdc,wise_eth,fei_tribe,weth_usdt,fxs_frax,fnk_usdt,wbtc_weth,usdc_usdt,dai_eth,dai_usdt]
+	interesting_pools = [dai_usdc,wise_eth,fei_tribe,weth_usdt,fxs_frax,fnk_usdt,wbtc_weth,usdc_usdt,dai_eth,dai_usdt]
 
 	df = None
 	step_size = 200 
