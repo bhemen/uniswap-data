@@ -105,26 +105,21 @@ if __name__ == '__main__':
 	usdc_usdt = "0x3041cbd36888becc7bbcbc0045e3b1f144466f5f"
 	dai_eth = "0xa478c2975ab1ea89e8196811f51a7b7ade33eb11"
 	dai_usdt = "0xb20bd5d04be54f870d5c0d3ca85d82b34b836405"
+	eth_usdt = "0x0d4a11d5eeaac28ec3f61d100daf4d40471f1852"
 
-	#interesting_pools = [usdc_eth,dai_usdc,wise_eth,fei_tribe,weth_usdt,fxs_frax,fnk_usdt,wbtc_weth,usdc_usdt,dai_eth,dai_usdt]
-	interesting_pools = [dai_usdc,wise_eth,fei_tribe,weth_usdt,fxs_frax,fnk_usdt,wbtc_weth,usdc_usdt,dai_eth,dai_usdt]
+	interesting_pools = [usdc_eth,dai_usdc,wise_eth,fei_tribe,weth_usdt,fxs_frax,fnk_usdt,wbtc_weth,usdc_usdt,dai_eth,dai_usdt,eth_usdt]
 
-	df = None
-	step_size = 200 
-	current_block = web3.eth.block_number
-	outfile = "../data/interesting_pool_stats.csv"
+	step_size = 100 
+	version = 'v2'
+	#outfile = "../data/interesting_pool_stats.csv"
 
 	for i,pool in enumerate(interesting_pools):
-		version = 'v2'
+		current_block = web3.eth.block_number
 		start_block = get_pool_deploy_block( pool, version )
 		pool_history = get_balance_history( pool, start_block, current_block, step_size, version=version )
 		if pool_history is not None:
 			token0_symbol = pool_history.token0_symbol[0]
 			token1_symbol = pool_history.token1_symbol[0]
 			pool_history.to_csv( f"../data/{version}-{pool}-{token0_symbol}-{token1_symbol}.csv", index=False )
-		#print( f"got {pool_history.shape[0]} rows" )
-		#df = pd.concat([df,pool_history])
-		#print( f"df has {df.shape[0]} rows" )
-		#df.to_csv(outfile,index=False)
 
 
