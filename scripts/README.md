@@ -8,4 +8,12 @@ This script gets all the events emitted by the Uniswap Factory contracts, and sa
 * The events from the [Uniswap v2 Factory](https://etherscan.io/address/0x5C69bEe701ef814a2B6a3EDD4B1652CB9cc5aA6f) are saved in [uniswap_v2_factory_events.csv](../data/uniswap_v2_factory_events.csv).
 * The events from the [Uniswap v3 Factory](https://etherscan.io/address/0x1F98431c8aD98523631AE4a59f267346ea31F984) are saved in [uniswap_v3_factory_events.csv](../data/uniswap_v3_factory_events.csv).
 
-The main value of these files is that they provide a complete list of all the Uniswap pool contracts  The Uniswap v1 Factory emits a "NewExchange" event every time a v1 pool is created.  The Uniswap v2 Factory emits a "PairCreated" event every time a v2 pool is created.  The Uniswap v3 Factory emits a "PoolCreated" event every time a v3 pool is created.
+## [add_symbols.py](add_symbols.py)
+
+The Uniswap v1 Factory emits a "NewExchange" event every time a v1 pool is created.  The Uniswap v2 Factory emits a "PairCreated" event every time a v2 pool is created.  The Uniswap v3 Factory emits a "PoolCreated" event every time a v3 pool is created, so the Factory events provide a complete list of all the Uniswap pools and their addresses.
+
+These events include the addresses of the token(s) being traded in the pool, but not the names or symbols of these tokens.  The [add_symbols.py](add_symbols.py) script reads the factory events, and for each token, it adds the name and symbol of the token.  This provides a nice list of all the Uniswap Pools that can be searched by name or symbol.
+
+* [uniswap_v1_pools.csv](../data/uniswap_v1_pools.csv) has all the Uniswap v1 Pools
+* [uniswap_v2_pools.csv](../data/uniswap_v2_pools.csv) has all the Uniswap v2 Pools
+* [uniswap_v3_pools.csv](../data/uniswap_v3_pools.csv) has all the Uniswap v3 Pools
