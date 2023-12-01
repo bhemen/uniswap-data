@@ -8,9 +8,9 @@ The pools covered in this schema are:
    - Address: [0x5777d92f208679db4b9778590fa3cab3ac9e2168](https://etherscan.io/address/0x5777d92f208679db4b9778590fa3cab3ac9e2168)
 2. **FRAX/USDC Pool**
    - Address: [0xc63b0708e2f7e69cb8a1df0e1389a98c35a76d52](https://etherscan.io/address/0xc63b0708e2f7e69cb8a1df0e1389a98c35a76d52)
-3. **USDC/ETH Pool (First Instance)**
+3. **USDC/ETH Pool ([.05% Fee](https://support.uniswap.org/hc/en-us/articles/20904283758349-What-are-fee-tiers)**
    - Address: [0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640](https://etherscan.io/address/0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640)
-4. **USDC/ETH Pool (Second Instance)**
+4. **USDC/ETH Pool ([.3% Fee](https://support.uniswap.org/hc/en-us/articles/20904283758349-What-are-fee-tiers)**
    - Note: This is a distinct pool from the first USDC/ETH pool, denote as `USDCETH2` for distinction.
    - Address: [0x8ad599c3a0ff1de082011efddc58f1908eb6e6d8](https://etherscan.io/address/0x8ad599c3a0ff1de082011efddc58f1908eb6e6d8)
 5. **WBTC/ETH Pool**
