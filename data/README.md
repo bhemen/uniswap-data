@@ -5,14 +5,49 @@ In addition to the data provided here, additional data files (giving the full tr
 
 # Data files available in this repository
 
+## Factory events
+
+### Uniswap v1
+
+The Uniswap v1 factory has created over 4000 Uniswap v1 pools.
 * [uniswap_v1_factory_events.csv](uniswap_v1_factory_events.csv) - gives a full list of events emitted by the Uniswap v1 Factory.  The only event emitted by the Uniswap v1 factory contract is the "NewExchange" event, which is emitted whenever a new pool ("exchange") is produced.  Recall that in Uniswap v1, each pool holds one ERC-20 token (which can be traded for ETH).  This file is created by [get_factory_events.py](../scripts/get_factory_events.py).
 * [uniswap_v1_pools.csv](uniswap_v1_pools.csv) - gives a full list of all the Uniswap v1 pools, together with the token symbol.  This file is created by reading [uniswap_v1_factory_events.csv](uniswap_v1_factory_events.csv) to get the address of each pool, and then looking up the ERC-20 symbol of the token being traded by the pool.  This file is created by [add_symbols.py](../scripts/add_symbols.py).
+
+#### Uniswap v2
+
+The Uniswap v2 factory has created over 160,000 Uniswap v2 pools.
+* [uniswap_v2_factory_events.csv](uniswap_v2_factory_events.csv) - gives a full list of events emitted by the Uniswap v2 Factory.  The only event emitted by the Uniswap v2 factory contract is the "PairCreated" event, which is emitted whenever a new pool ("pair") is produced.  Recall that in Uniswap v2, each pool holds a pair of ERC-20 tokens.  This file is created by [get_factory_events.py](../scripts/get_factory_events.py).
+* [uniswap_v2_pools.csv](uniswap_v2_pools.csv) - gives a full list of all the Uniswap v2 pools, together with the token symbol.  This file is created by reading [uniswap_v2_factory_events.csv](uniswap_v2_factory_events.csv) to get the address of each pool, and then looking up the ERC-20 symbols of the tokens being traded by the pool.  This file is created by [add_symbols.py](../scripts/add_symbols.py).
+
+#### Uniswap v3
+
+The Uniswap v3 factory has created over 11,000 Uniswap v3 pools.
+* [uniswap_v3_factory_events.csv](uniswap_v3_factory_events.csv) - gives a full list of events emitted by the Uniswap v3 Factory.  The factory emits three events "OwnerChanged," "FeeAmountEnabled" and "PoolCreated".  This file is created by [get_factory_events.py](../scripts/get_factory_events.py).
+* [uniswap_v3_pools.csv](uniswap_v3_pools.csv) - gives a full list of all the Uniswap v3 pools, together with the token symbol.  This file is created by reading [uniswap_v3_factory_events.csv](uniswap_v3_factory_events.csv) to get the address of each pool (from the "PoolCreated" events), and then looking up the ERC-20 symbols of the tokens being traded by the pool.  This file is created by [add_symbols.py](../scripts/add_symbols.py).
+
+## Pool data
+
+This repository also historical balance data from some (popular) pools.
+
+* [Uniswap v2 WETH-USDC](v2-0x0d4a11d5eeaac28ec3f61d100daf4d40471f1852-WETH-USDT.csv)
+* [Uniswap v2 WETH-USDC](v2-0x21b8065d10f73ee2e260e5b47d3344d3ced7596e-WISE-WETH.csv)
+* [Uniswap v2 USDC-USDT](v2-0x3041cbd36888becc7bbcbc0045e3b1f144466f5f-USDC-USDT.csv)
+* [Uniswap v2 FNK-USDT](v2-0x61b62c5d56ccd158a38367ef2f539668a06356ab-FNK-USDT.csv)
+* [Uniswap v2 FEI-TRIBE](v2-0x9928e4046d7c6513326ccea028cd3e7a91c7590a-FEI-TRIBE.csv)
+* [Uniswap v2 DAI-WETH](v2-0xa478c2975ab1ea89e8196811f51a7b7ade33eb11-DAI-WETH.csv)
+* [Uniswap v2 DAI-USDC](v2-0xae461ca67b15dc8dc81ce7615e0320da1a9ab8d5-DAI-USDC.csv)
+* [Uniswap v2 DAI-USDT](v2-0xb20bd5d04be54f870d5c0d3ca85d82b34b836405-DAI-USDT.csv)
+* [Uniswap v2 USDC-WETH](v2-0xb4e16d0168e52d35cacd2c6185b44281ec28c9dc-USDC-WETH.csv)
+* [Uniswap v2 WBTC-WETH](v2-0xbb2b8038a1640196fbe3e38816f3e67cba72d940-WBTC-WETH.csv)
+* [Uniswap v2 FXS-FRAX](v2-0xe1573b9d29e2183b1af0e743dc2754979a40d237-FXS-FRAX.csv)
+
+
 
 # Data Schema for Uniswap v3 Pool Data (available on [Box](https://upenn.box.com/s/ay5e6tc47pvwauo1kc4fboa17k0zc7ik))
 
 This document outlines the data schema for the top liquidity pools on Uniswap v3, as identified from [Uniswap Pool Statistics](https://info.uniswap.org/#/pools). The pools included in this schema are among the most active and significant in terms of liquidity and trading volume. It's important to note that the rankings of these pools are subject to change, but they generally represent the most prominent pools in the Uniswap ecosystem. The scraped data for these pools can be found in this [Box folder](https://upenn.box.com/s/ay5e6tc47pvwauo1kc4fboa17k0zc7ik).
 
-The pools covered in this schema are:
+Some of the pools available for download from [Box](https://upenn.box.com/s/ay5e6tc47pvwauo1kc4fboa17k0zc7ik) are:
 
 1. **DAI/USDC Pool**
    - Address: [0x5777d92f208679db4b9778590fa3cab3ac9e2168](https://etherscan.io/address/0x5777d92f208679db4b9778590fa3cab3ac9e2168)
@@ -28,7 +63,7 @@ The pools covered in this schema are:
 
 Each of these pools plays a vital role in the Uniswap ecosystem, offering significant liquidity and trading opportunities. The data schema will provide insights into the workings of these pools, including liquidity metrics, transaction details, and more.
 
-## Event
+## Events
 
 This schema details the data structure for events scraped from Uniswap v3 pool contracts. The events are identical across different pools due to the standardized implementation of Uniswap v3. For illustration purposes, we use the WBTC/ETH pool as an example. The same structure applies to other pools: DAI/USDC, FRAX/USDC, USDC/ETH, and USDC/ETH2.
 
