@@ -27,7 +27,7 @@ The Uniswap v3 factory has created over 11,000 Uniswap v3 pools.
 
 ## Pool data
 
-This repository also historical balance data from some (popular) pools.  These logs are created by the [get_specific_pool_info.py](../scripts/get_specific_pool_info.py).  These files currently have data sampled every 100 blocks, but this can easily be changed by modifying [get_specific_pool_info.py](../scripts/get_specific_pool_info.py).  These files make it easy to calculate the average LP returns for each pool.
+This repository also historical balance data from some (popular) pools.  These logs are created by the [get_specific_pool_info.py](../scripts/get_specific_pool_info.py).  These files currently have data sampled every 100 blocks, but this can easily be changed by modifying [get_specific_pool_info.py](../scripts/get_specific_pool_info.py).  These files make it easy to calculate the average LP returns for each pool.  Note that these files do *not* contain data about individual liquidity providers, or individual swaps on the pool.  For this type of user-level data, see the next section, which describes event logs from Uniswap v3 Pools.
 
 * [Uniswap v2 WETH-USDC](v2-0x0d4a11d5eeaac28ec3f61d100daf4d40471f1852-WETH-USDT.csv)
 * [Uniswap v2 WETH-USDC](v2-0x21b8065d10f73ee2e260e5b47d3344d3ced7596e-WISE-WETH.csv)
