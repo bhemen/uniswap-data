@@ -57,7 +57,9 @@ These files have the following columns:
 
 # Data Schema for Uniswap v3 Pool Data (available on [Box](https://upenn.box.com/s/ay5e6tc47pvwauo1kc4fboa17k0zc7ik))
 
-This document outlines the data schema for the top liquidity pools on Uniswap v3, as identified from [Uniswap Pool Statistics](https://info.uniswap.org/#/pools). The pools included in this schema are among the most active and significant in terms of liquidity and trading volume. It's important to note that the rankings of these pools are subject to change, but they generally represent the most prominent pools in the Uniswap ecosystem. The scraped data for these pools can be found in this [Box folder](https://upenn.box.com/s/ay5e6tc47pvwauo1kc4fboa17k0zc7ik).
+In addition to the pool-level data described above, we also collected event-level data from specific pools.  The data files include *all* the transactions made on a given pool, and are thus too large to store on github, so we have made them available on [Box](https://upenn.box.com/s/ay5e6tc47pvwauo1kc4fboa17k0zc7ik).
+
+We currently provide event logs from some of the top liquidity pools on Uniswap v3, as identified from [Uniswap Pool Statistics](https://info.uniswap.org/#/pools). The pools included in this schema are among the most active and significant in terms of liquidity and trading volume. It's important to note that the rankings of these pools are subject to change, but they generally represent the most prominent pools in the Uniswap ecosystem. The scraped data for these pools can be found in this [Box folder](https://upenn.box.com/s/ay5e6tc47pvwauo1kc4fboa17k0zc7ik).
 
 Some of the pools available for download from [Box](https://upenn.box.com/s/ay5e6tc47pvwauo1kc4fboa17k0zc7ik) are:
 
