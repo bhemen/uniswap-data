@@ -1,4 +1,14 @@
-# Uniswap v3 Pool Data Schema
+# Overview
+
+This folder holds some of the data gathered from Uniswap's Ethereum contracts.
+In addition to the data provided here, additional data files (giving the full transaction logs of popular Uniswap v3 pools) are available in our [Box folder](https://upenn.box.com/s/ay5e6tc47pvwauo1kc4fboa17k0zc7ik).
+
+# Data files available in this repository
+
+* [uniswap_v1_factory_events.csv](uniswap_v1_factory_events.csv) - gives a full list of events emitted by the Uniswap v1 Factory.  The only event emitted by the Uniswap v1 factory contract is the "NewExchange" event, which is emitted whenever a new pool ("exchange") is produced.  Recall that in Uniswap v1, each pool holds one ERC-20 token (which can be traded for ETH).  This file is created by [get_factory_events.py](../scripts/get_factory_events.py).
+* [uniswap_v1_pools.csv](uniswap_v1_pools.csv) - gives a full list of all the Uniswap v1 pools, together with the token symbol.  This file is created by reading [uniswap_v1_factory_events.csv](uniswap_v1_factory_events.csv) to get the address of each pool, and then looking up the ERC-20 symbol of the token being traded by the pool.  This file is created by [add_symbols.py](../scripts/add_symbols.py).
+
+# Data Schema for Uniswap v3 Pool Data (available on [Box](https://upenn.box.com/s/ay5e6tc47pvwauo1kc4fboa17k0zc7ik))
 
 This document outlines the data schema for the top liquidity pools on Uniswap v3, as identified from [Uniswap Pool Statistics](https://info.uniswap.org/#/pools). The pools included in this schema are among the most active and significant in terms of liquidity and trading volume. It's important to note that the rankings of these pools are subject to change, but they generally represent the most prominent pools in the Uniswap ecosystem. The scraped data for these pools can be found in this [Box folder](https://upenn.box.com/s/ay5e6tc47pvwauo1kc4fboa17k0zc7ik).
 
@@ -8,9 +18,9 @@ The pools covered in this schema are:
    - Address: [0x5777d92f208679db4b9778590fa3cab3ac9e2168](https://etherscan.io/address/0x5777d92f208679db4b9778590fa3cab3ac9e2168)
 2. **FRAX/USDC Pool**
    - Address: [0xc63b0708e2f7e69cb8a1df0e1389a98c35a76d52](https://etherscan.io/address/0xc63b0708e2f7e69cb8a1df0e1389a98c35a76d52)
-3. **USDC/ETH Pool ([.05% Fee](https://support.uniswap.org/hc/en-us/articles/20904283758349-What-are-fee-tiers)**
+3. **USDC/ETH Pool ([.05% Fee](https://support.uniswap.org/hc/en-us/articles/20904283758349-What-are-fee-tiers))**
    - Address: [0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640](https://etherscan.io/address/0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640)
-4. **USDC/ETH Pool ([.3% Fee](https://support.uniswap.org/hc/en-us/articles/20904283758349-What-are-fee-tiers)**
+4. **USDC/ETH Pool ([.3% Fee](https://support.uniswap.org/hc/en-us/articles/20904283758349-What-are-fee-tiers))**
    - Note: This is a distinct pool from the first USDC/ETH pool, denote as `USDCETH2` for distinction.
    - Address: [0x8ad599c3a0ff1de082011efddc58f1908eb6e6d8](https://etherscan.io/address/0x8ad599c3a0ff1de082011efddc58f1908eb6e6d8)
 5. **WBTC/ETH Pool**
