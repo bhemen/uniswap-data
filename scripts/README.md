@@ -29,3 +29,7 @@ This script gets the historical balances of specified pools.  The script grabs t
 The output is put into a file with the pool address and the token symbols (e.g. [v2-0x0d4a11d5eeaac28ec3f61d100daf4d40471f1852-WETH-USDT.csv](../data/v2-0x0d4a11d5eeaac28ec3f61d100daf4d40471f1852-WETH-USDT.csv)).
 
 For Uniswap v2, this is enough to track Liquidity Provider earnings.  If the total supply of LP tokens at block $t$ is $N_t$, and the pool balance of token0 is $X_t$, and the pool balance of token1 is $Y_t$, then each LP token is redeemable for $X_t/N_t$ token0 and $Y_t/N_t$ token1.  To calculate a LP's earnings from $t_0$ to $t_1$, we just need to calculate the change in value of an LP token from $t_0$ to $t_1$.
+
+## [search_pools.py](search_pools.py)
+
+This script provides some utilities for searching the factory event logs.  For example, it provides the function get_pool_deploy_block(), which is used by [get_specific_pool_info.py](get_specific_pool_info.py) to easily lookup the block number at which a given pool was deployed.  It also provides functions that allow you to find all the pools that trade a given token.
