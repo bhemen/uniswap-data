@@ -27,7 +27,7 @@ The Uniswap v3 factory has created over 11,000 Uniswap v3 pools.
 
 ## Pool data
 
-This repository also historical balance data from some (popular) pools.
+This repository also historical balance data from some (popular) pools.  These logs are created by the [get_specific_pool_info.py](../scripts/get_specific_pool_info.py).  These files currently have data sampled every 100 blocks, but this can easily be changed by modifying [get_specific_pool_info.py](../scripts/get_specific_pool_info.py).  These files make it easy to calculate the average LP returns for each pool.
 
 * [Uniswap v2 WETH-USDC](v2-0x0d4a11d5eeaac28ec3f61d100daf4d40471f1852-WETH-USDT.csv)
 * [Uniswap v2 WETH-USDC](v2-0x21b8065d10f73ee2e260e5b47d3344d3ced7596e-WISE-WETH.csv)
@@ -41,6 +41,18 @@ This repository also historical balance data from some (popular) pools.
 * [Uniswap v2 WBTC-WETH](v2-0xbb2b8038a1640196fbe3e38816f3e67cba72d940-WBTC-WETH.csv)
 * [Uniswap v2 FXS-FRAX](v2-0xe1573b9d29e2183b1af0e743dc2754979a40d237-FXS-FRAX.csv)
 
+These files have the following columns:
+
+* pool_address - The address of the pool (stays constant within a file)
+* token0_address - The address of token 0 (stays constant within a file)
+* token1_address - The address of token 1 (stays constant within a file)
+* token0_symbol - The symbol of token 0 (stays constant within a file)
+* token1_symbol - The symbol of token 1 (stays constant within a file)
+* block - The current block height (i.e., the current block number)
+* ts - The timestamp of the block
+* token0_bal - The total balance of token 0 held by the pool at the current block height (obtained by calling balance_of() on the token 0 contract)
+* token1_bal - The total balance of token 1 held by the pool at the current block height (obtained by calling balance_of() on the token 1 contract)
+* lp_supply - The total supply of LP tokens at the current block height (obtained by calling total_supply() on the pool contract)
 
 
 # Data Schema for Uniswap v3 Pool Data (available on [Box](https://upenn.box.com/s/ay5e6tc47pvwauo1kc4fboa17k0zc7ik))
@@ -69,12 +81,12 @@ This schema details the data structure for events scraped from Uniswap v3 pool c
 
 The events covered in this schema include:
 
-* `Burn` - Describes the burning of liquidity tokens.
+* `Burn` - Describes the burning of LP tokens.  This event is emitted when an LP withdraws funds from the pool.
 * `Collect` - Represents the collection of fees accrued from providing liquidity.
 * `Flash` - Details flash loan transactions.
 * `IncreaseObservationCardinalityNext` - Pertains to adjustments in the observation cardinality.
 * `Initialize` - Initial setup of a liquidity pool.
-* `Mint` - Describes the creation of liquidity tokens.
+* `Mint` - Describes the creation of LP tokens.  This event is emitted when an LP deposits funds into the pool.
 * `Swap` - Represents swap events between tokens in the pool.
 
 Each event's structure will be detailed in the following sections.
